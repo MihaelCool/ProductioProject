@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #FFFFFF;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: 60px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.header-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1A202C;
+}
+
+.header-user {
+  font-size: 14px;
+  color: #4A5568;
+}
+
+.header-user button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #2F855A;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.header-user button:hover {
+  background-color: #48BB78;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #EDF2F7;
+  height: calc(100vh - 60px);
+  position: fixed;
+  top: 60px;
+  left: 0;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #4A5568;
+  font-size: 16px;
+}
+
+.sidebar ul li.active a,
+.sidebar ul li a:hover {
+  color: #FFFFFF;
+  background-color: #2F855A;
+  padding: 10px;
+  border-radius: 4px;
+  display: block;
+}
+
+.main-content {
+  margin-left: 200px;
+  padding: 80px 20px;
+}
+
+.page-title {
+  font-size: 24px;
+  color: #1A202C;
+  margin-bottom: 20px;
+}
+
+/* Стили для /home (оставляем как есть, но обновляем цвет кнопки) */
+.welcome {
+  font-size: 24px;
+  color: #1A202C;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stats-card {
+  background-color: #FFFFFF;
+  border: 1px solid #EDF2F7;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+}
+
+.stats-card h3 {
+  font-size: 16px;
+  color: #4A5568;
+  margin-bottom: 10px;
+}
+
+.stats-card p {
+  font-size: 24px;
+  color: #1A202C;
+}
+
+.create-order-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2F855A;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.create-order-btn:hover {
+  background-color: #48BB78;
+}
+
+/* Стили для /create-order */
+.create-order {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #4A5568;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 8px;
+  border: 1px solid #EDF2F7;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2F855A;
+}
+
+.submit-btn {
+  padding: 10px;
+  background-color: #2F855A;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.submit-btn:hover {
+  background-color: #48BB78;
+}
+
+/* Стили для /orders */
+.task-list {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #EDF2F7;
+}
+
+.orders-table th {
+  background-color: #2F855A;
+  color: #FFFFFF;
+}
+
+.status-awaiting_payment {
+  color: #ECC94B;
+}
+
+.status-in_progress_programming {
+  color: #4299E1;
+}
+
+.status-completed {
+  color: #38A169;
+}
+
+.action-btn {
+  padding: 5px 10px;
+  background-color: #2F855A;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: #48BB78;
+}
+
+/* Стили для /notifications */
+.notifications {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border: 1px solid #EDF2F7;
+  border-radius: 4px;
+}
+
+.notification-card.unread {
+  background-color: #F0FFF4;
+  font-weight: bold;
+}
+
+.notification-content p {
+  color: #4A5568;
+}
+
+.notification-content span {
+  font-size: 12px;
+  color: #A0AEC0;
+}
+
+.read-btn {
+  background: none;
+  border: none;
+  color: #2F855A;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.read-btn:hover {
+  color: #48BB78;
+}

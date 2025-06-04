@@ -1,0 +1,277 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  background-color: #fff;
+}
+
+.app {
+  flex-direction: column;
+  display: flex;
+}
+
+.header {
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.header-logo {
+  color: #1a202c;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header-user {
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.header-user button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #2f855a;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  padding: 5px 10px;
+}
+
+.header-user button:hover {
+  background-color: #48bb78;
+}
+
+.sidebar {
+  background-color: #edf2f7;
+  width: 200px;
+  height: calc(100vh - 60px);
+  padding-top: 20px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+}
+
+.sidebar ul li a {
+  color: #4a5568;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.sidebar ul li.active a, .sidebar ul li a:hover {
+  color: #fff;
+  background-color: #2f855a;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+}
+
+.main-content {
+  margin-left: 200px;
+  padding: 80px 20px;
+}
+
+.page-title, .welcome {
+  color: #1a202c;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.stats {
+  gap: 20px;
+  display: flex;
+}
+
+.stats-card {
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #edf2f7;
+  border-radius: 8px;
+  flex: 1;
+  padding: 20px;
+}
+
+.stats-card h3 {
+  color: #4a5568;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.stats-card p {
+  color: #1a202c;
+  font-size: 24px;
+}
+
+.create-order-btn {
+  color: #fff;
+  background-color: #2f855a;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.create-order-btn:hover {
+  background-color: #48bb78;
+}
+
+.create-order {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.order-form {
+  flex-direction: column;
+  gap: 15px;
+  display: flex;
+}
+
+.form-group {
+  flex-direction: column;
+  display: flex;
+}
+
+.form-group label {
+  color: #4a5568;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+  border: 1px solid #edf2f7;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: #2f855a;
+  outline: none;
+}
+
+.submit-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #2f855a;
+  border: none;
+  border-radius: 4px;
+  align-self: flex-end;
+  padding: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #48bb78;
+}
+
+.task-list {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.orders-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.orders-table th, .orders-table td {
+  text-align: left;
+  border-bottom: 1px solid #edf2f7;
+  padding: 10px;
+}
+
+.orders-table th {
+  color: #fff;
+  background-color: #2f855a;
+}
+
+.status-awaiting_payment {
+  color: #ecc94b;
+}
+
+.status-in_progress_programming {
+  color: #4299e1;
+}
+
+.status-completed {
+  color: #38a169;
+}
+
+.action-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #2f855a;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.action-btn:hover {
+  background-color: #48bb78;
+}
+
+.notifications {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.notification-list {
+  flex-direction: column;
+  gap: 10px;
+  display: flex;
+}
+
+.notification-card {
+  background-color: #fff;
+  border: 1px solid #edf2f7;
+  border-radius: 4px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+}
+
+.notification-card.unread {
+  background-color: #f0fff4;
+  font-weight: bold;
+}
+
+.notification-content p {
+  color: #4a5568;
+}
+
+.notification-content span {
+  color: #a0aec0;
+  font-size: 12px;
+}
+
+.read-btn {
+  color: #2f855a;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+.read-btn:hover {
+  color: #48bb78;
+}
+/*# sourceMappingURL=public.d91c94e1.css.map */

@@ -19,7 +19,7 @@
     "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-react": "^7.27.1",
+    "buffer": "^6.0.3",
     "parcel": "^2.15.2"
   }
 }
-
