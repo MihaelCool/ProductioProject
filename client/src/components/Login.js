@@ -7,30 +7,35 @@ function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/login', { username, password });
+      const res = await axios.post('http://localhost:3000/api/login', { username, password });
       localStorage.setItem('token', res.data.token);
-      navigate('/create-order');
+      navigate('/home');
     } catch (err) {
-      alert('Login failed: ' + (err.response?.data.error || err.message));
+      console.error('Login error:', {
+        message: err.message,
+        status: err.response?.status,
+        data: err.response?.data,
+      });
+      alert('Login failed: ' + (err.response?.data?.error || err.message));
     }
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Username</label>
-          <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} required />
+    <div className="login">
+      <h1>Вход</h1>
+      <form onSubmit={handleLogin}>
+        <div className="form-group">
+          <label>Имя пользователя</label>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <div className="form-group">
+          <label>Пароль</label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit" className="submit-btn">Войти</button>
       </form>
     </div>
   );

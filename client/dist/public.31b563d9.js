@@ -678,7 +678,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _client = require("react-dom/client"); // Изменили импорт
+var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
 var _app = require("./App");
 var _appDefault = parcelHelpers.interopDefault(_app);
@@ -16338,7 +16338,7 @@ $RefreshReg$(_c, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router-dom":"fKeYf","./components/Home":"fDelZ","./components/Login":"l15IZ","./components/TaskList":"j3W9J","./components/Notifications":"jiwb9","./components/CreateOrder":"itVzm","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./App.css":"6n0o6"}],"fKeYf":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router-dom":"fKeYf","./components/Home":"fDelZ","./components/Login":"l15IZ","./components/TaskList":"j3W9J","./components/Notifications":"jiwb9","./components/CreateOrder":"itVzm","./App.css":"6n0o6","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"fKeYf":[function(require,module,exports,__globalThis) {
 /**
  * react-router-dom v7.6.1
  *
@@ -28554,107 +28554,108 @@ function Login() {
     const [username, setUsername] = (0, _react.useState)('');
     const [password, setPassword] = (0, _react.useState)('');
     const navigate = (0, _reactRouterDom.useNavigate)();
-    const handleSubmit = async (e)=>{
+    const handleLogin = async (e)=>{
         e.preventDefault();
         try {
-            const res = await (0, _axiosDefault.default).post('http://localhost:3000/api/auth/login', {
+            const res = await (0, _axiosDefault.default).post('http://localhost:3000/api/login', {
                 username,
                 password
             });
             localStorage.setItem('token', res.data.token);
-            navigate('/create-order');
+            navigate('/home');
         } catch (err) {
-            alert('Login failed: ' + (err.response?.data.error || err.message));
+            console.error('Login error:', {
+                message: err.message,
+                status: err.response?.status,
+                data: err.response?.data
+            });
+            alert('Login failed: ' + (err.response?.data?.error || err.message));
         }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "container mt-5",
+        className: "login",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "Login"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "\u0412\u0445\u043E\u0434"
             }, void 0, false, {
                 fileName: "src/components/Login.js",
-                lineNumber: 23,
+                lineNumber: 28,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                onSubmit: handleSubmit,
+                onSubmit: handleLogin,
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "mb-3",
+                        className: "form-group",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                className: "form-label",
-                                children: "Username"
+                                children: "\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F"
                             }, void 0, false, {
                                 fileName: "src/components/Login.js",
-                                lineNumber: 26,
+                                lineNumber: 31,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 type: "text",
-                                className: "form-control",
                                 value: username,
                                 onChange: (e)=>setUsername(e.target.value),
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/Login.js",
-                                lineNumber: 27,
+                                lineNumber: 32,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Login.js",
-                        lineNumber: 25,
+                        lineNumber: 30,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "mb-3",
+                        className: "form-group",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                className: "form-label",
-                                children: "Password"
+                                children: "\u041F\u0430\u0440\u043E\u043B\u044C"
                             }, void 0, false, {
                                 fileName: "src/components/Login.js",
-                                lineNumber: 30,
+                                lineNumber: 35,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 type: "password",
-                                className: "form-control",
                                 value: password,
                                 onChange: (e)=>setPassword(e.target.value),
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/Login.js",
-                                lineNumber: 31,
+                                lineNumber: 36,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Login.js",
-                        lineNumber: 29,
+                        lineNumber: 34,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         type: "submit",
-                        className: "btn btn-primary",
-                        children: "Login"
+                        className: "submit-btn",
+                        children: "\u0412\u043E\u0439\u0442\u0438"
                     }, void 0, false, {
                         fileName: "src/components/Login.js",
-                        lineNumber: 33,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Login.js",
-                lineNumber: 24,
+                lineNumber: 29,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Login.js",
-        lineNumber: 22,
+        lineNumber: 27,
         columnNumber: 5
     }, this);
 }

@@ -1,81 +1,132 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
-const multer = require('multer');
 const path = require('path');
-const db = require('./database'); // Подключение базы данных
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const multer = require('multer');
+const cors = require('cors');
+const db = require('./database');
 
 const app = express();
-const port = 3000;
 
-// Настройка multer для обработки файлов
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) return res.status(401).json({ error: 'Access denied' });
+
+  jwt.verify(token, 'secret_key', (err, user) => {
+    if (err) return res.status(403).json({ error: 'Invalid token' });
+    req.user = user;
+    next();
+  });
+};
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    if (file.fieldname === 'drawing') cb(null, './uploads/drawings/');
-    else if (file.fieldname === 'tap_file') cb(null, './uploads/tap_files/');
+    if (file.fieldname === 'drawing') {
+      cb(null, 'uploads/drawings/');
+    } else if (file.fieldname === 'tap_file') {
+      cb(null, 'uploads/tap_files/');
+    }
   },
-  filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`),
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
 });
+
 const upload = multer({ storage });
 
-// Middleware для обработки JSON
-app.use(express.json());
+app.post('/api/login', (req, res) => {
+  const { username, password } = req.body;
+  console.log('Login attempt:', { username, password });
+  db.get('SELECT * FROM users WHERE username = ?', [username], (err, user) => {
+    if (err) {
+      console.error('Database error:', err.message);
+      return res.status(500).json({ error: err.message });
+    }
+    if (!user) {
+      console.log('User not found:', username);
+      return res.status(400).json({ error: 'Invalid credentials' });
+    }
 
-// Статическая служба для доступа к загруженным файлам
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+    console.log('User found:', user.username, 'Stored password:', user.password);
+    if (password === user.password) { // Временная замена bcrypt
+      const token = jwt.sign({ id: user.id, role: user.role }, 'secret_key', { expiresIn: '1h' });
+      db.run('UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?', [user.id]);
+      res.json({ token });
+    } else {
+      console.log('Password mismatch for user:', username);
+      return res.status(400).json({ error: 'Invalid credentials' });
+    }
+  });
+});
 
-// Создание заказа с чертежом
-app.post('/api/orders', upload.single('drawing'), (req, res) => {
+app.post('/api/orders', authenticateToken, upload.single('drawing'), (req, res) => {
   const { title, description, customer_name, customer_contact, total_cost, due_date, priority } = req.body;
-  const managerId = 1; // Временное значение, заменить на req.user.id при добавлении авторизации
+  const drawingPath = req.file ? req.file.path : null;
 
   db.run(
-    'INSERT INTO orders (title, description, customer_name, customer_contact, status, manager_id, total_cost, due_date, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-    [title, description, customer_name, customer_contact, 'awaiting_payment', managerId, total_cost || 0, due_date, priority || 'medium'],
+    `INSERT INTO orders (title, description, customer_name, customer_contact, status, manager_id, total_cost, due_date, priority) 
+     VALUES (?, ?, ?, ?, 'awaiting_payment', ?, ?, ?, ?)`,
+    [title, description, customer_name, customer_contact, req.user.id, total_cost, due_date, priority],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
 
-      if (req.file) {
+      const orderId = this.lastID;
+      if (drawingPath) {
         db.run(
-          'INSERT INTO drawings (order_id, filename, path, uploaded_at) VALUES (?, ?, ?, ?)',
-          [this.lastID, req.file.filename, `/uploads/drawings/${req.file.filename}`, new Date()],
+          'INSERT INTO drawings (order_id, filename, path) VALUES (?, ?, ?)',
+          [orderId, req.file.filename, drawingPath],
           (err) => {
             if (err) return res.status(500).json({ error: err.message });
-            res.json({ id: this.lastID, filename: req.file.filename });
+            res.status(201).json({ message: 'Order created', orderId });
           }
         );
       } else {
-        res.json({ id: this.lastID });
+        res.status(201).json({ message: 'Order created', orderId });
       }
     }
   );
 });
 
-// Подтверждение предоплаты
-app.put('/api/orders/:id/prepayment', (req, res) => {
-  const { prepayment_confirmed } = req.body;
-  const managerId = 1; // Временное значение, заменить на req.user.id
-
-  db.get('SELECT * FROM orders WHERE id = ? AND manager_id = ?', [req.params.id, managerId], (err, order) => {
+app.get('/api/orders', authenticateToken, (req, res) => {
+  db.all('SELECT * FROM orders', [], (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
-    if (!order) return res.status(404).json({ error: 'Order not found' });
-
-    db.run(
-      'UPDATE orders SET prepayment_confirmed = ?, status = ? WHERE id = ?',
-      [prepayment_confirmed, prepayment_confirmed ? 'in_progress_programming' : 'awaiting_payment', req.params.id],
-      (err) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json({ success: true });
-      }
-    );
+    res.json(rows);
   });
 });
 
-// Базовый маршрут для проверки работы сервера
-app.get('/', (req, res) => {
-  res.send('Server is running');
+app.put('/api/orders/:id/prepayment', authenticateToken, (req, res) => {
+  const { id } = req.params;
+  const { prepayment_confirmed } = req.body;
+
+  db.run(
+    'UPDATE orders SET prepayment_confirmed = ?, status = ? WHERE id = ?',
+    [prepayment_confirmed, 'in_progress_programming', id],
+    (err) => {
+      if (err) return res.status(500).json({ error: err.message });
+      res.json({ message: 'Prepayment confirmed' });
+    }
+  );
 });
 
-// Запуск сервера
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.get('/api/notifications', authenticateToken, (req, res) => {
+  db.all('SELECT * FROM notifications WHERE user_id = ?', [req.user.id], (err, rows) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(rows);
+  });
 });
+
+app.put('/api/notifications/:id/read', authenticateToken, (req, res) => {
+  const { id } = req.params;
+  db.run('UPDATE notifications SET read = 1 WHERE id = ?', [id], (err) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ message: 'Notification marked as read' });
+  });
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
