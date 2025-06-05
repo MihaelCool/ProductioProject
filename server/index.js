@@ -54,14 +54,19 @@ app.post('/api/login', (req, res) => {
     }
 
     console.log('User found:', user.username, 'Stored password:', user.password);
-    if (password === user.password) { // Временная замена bcrypt
+    bcrypt.compare(password, user.password, (err, isMatch) => {
+      if (err) {
+        console.error('Bcrypt error:', err);
+        return res.status(500).json({ error: 'Server error' });
+      }
+      if (!isMatch) {
+        console.log('Password mismatch for user:', username);
+        return res.status(400).json({ error: 'Invalid credentials' });
+      }
       const token = jwt.sign({ id: user.id, role: user.role }, 'secret_key', { expiresIn: '1h' });
       db.run('UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?', [user.id]);
       res.json({ token });
-    } else {
-      console.log('Password mismatch for user:', username);
-      return res.status(400).json({ error: 'Invalid credentials' });
-    }
+    });
   });
 });
 
