@@ -1,0 +1,87 @@
+/* Базовые стили для мобильных (до 480px) */
+.task-list-container {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.task-list-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #28a745;
+}
+
+.task-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+/* Планшеты (768px и больше) */
+@media (min-width: 768px) {
+  .task-list-container {
+    max-width: 700px;
+    padding: 30px;
+  }
+
+  .task-list-container h1 {
+    font-size: 2rem;
+  }
+
+  .tasks-list {
+    gap: 20px;
+  }
+
+  .task-card {
+    padding: 20px;
+  }
+
+  .task-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .task-card p {
+    font-size: 1rem;
+  }
+}
+
+/* Десктопы (1024px и больше) */
+@media (min-width: 1024px) {
+  .task-list-container {
+    max-width: 1000px;
+    padding: 40px;
+  }
+
+  .task-list-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .tasks-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  .task-card {
+    padding: 25px;
+  }
+}

@@ -16107,231 +16107,147 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
-var _home = require("./components/Home");
-var _homeDefault = parcelHelpers.interopDefault(_home);
 var _login = require("./components/Login");
 var _loginDefault = parcelHelpers.interopDefault(_login);
-var _taskList = require("./components/TaskList");
-var _taskListDefault = parcelHelpers.interopDefault(_taskList);
-var _notifications = require("./components/Notifications");
-var _notificationsDefault = parcelHelpers.interopDefault(_notifications);
+var _home = require("./components/Home");
+var _homeDefault = parcelHelpers.interopDefault(_home);
 var _createOrder = require("./components/CreateOrder");
 var _createOrderDefault = parcelHelpers.interopDefault(_createOrder);
+var _notifications = require("./components/Notifications");
+var _notificationsDefault = parcelHelpers.interopDefault(_notifications);
+var _taskList = require("./components/TaskList");
+var _taskListDefault = parcelHelpers.interopDefault(_taskList);
 var _appCss = require("./App.css");
-function App() {
+const PrivateRoute = ({ children })=>{
+    const token = localStorage.getItem('token');
+    return token ? children : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+        to: "/login"
+    }, void 0, false, {
+        fileName: "src/App.js",
+        lineNumber: 12,
+        columnNumber: 29
+    }, undefined);
+};
+_c = PrivateRoute;
+const App = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "app",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
-                    className: "header",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "header-logo",
-                            children: "Auto-Stol LLC"
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 15,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "header-user",
-                            children: [
-                                "\u041C\u0435\u043D\u0435\u0434\u0436\u0435\u0440 \u0418\u0432\u0430\u043D ",
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    onClick: ()=>localStorage.removeItem('token'),
-                                    children: "\u0412\u044B\u0439\u0442\u0438"
-                                }, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 17,
-                                    columnNumber: 27
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/App.js",
-                            lineNumber: 16,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/App.js",
-                    lineNumber: 14,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
-                    className: "sidebar",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/home",
-                                    children: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F"
-                                }, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 22,
-                                    columnNumber: 17
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 22,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/create-order",
-                                    children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
-                                }, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 23,
-                                    columnNumber: 17
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 23,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/orders",
-                                    children: "\u0421\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u043A\u0430\u0437\u043E\u0432"
-                                }, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 24,
-                                    columnNumber: 17
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 24,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "/notifications",
-                                    children: "\u0423\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u044F"
-                                }, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 25,
-                                    columnNumber: 17
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 25,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "/login",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 21,
-                        columnNumber: 11
-                    }, this)
+                        lineNumber: 19,
+                        columnNumber: 39
+                    }, void 0)
+                }, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 19,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "/home",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(PrivateRoute, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {}, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 24,
+                            columnNumber: 15
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 23,
+                        columnNumber: 13
+                    }, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 20,
                     columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
-                    className: "main-content",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 30,
-                                    columnNumber: 38
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 30,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/tasks",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _taskListDefault.default), {}, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 31,
-                                    columnNumber: 43
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 31,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/home",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {}, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 32,
-                                    columnNumber: 42
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 32,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/notifications",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationsDefault.default), {}, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 33,
-                                    columnNumber: 51
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 33,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/create-order",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createOrderDefault.default), {}, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 34,
-                                    columnNumber: 50
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 34,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                                path: "/orders",
-                                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _taskListDefault.default), {}, void 0, false, {
-                                    fileName: "src/App.js",
-                                    lineNumber: 35,
-                                    columnNumber: 44
-                                }, void 0)
-                            }, void 0, false, {
-                                fileName: "src/App.js",
-                                lineNumber: 35,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "/create-order",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(PrivateRoute, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createOrderDefault.default), {}, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 32,
+                            columnNumber: 15
+                        }, void 0)
+                    }, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 29,
-                        columnNumber: 11
-                    }, this)
+                        lineNumber: 31,
+                        columnNumber: 13
+                    }, void 0)
                 }, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 28,
                     columnNumber: 9
-                }, this)
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "/notifications",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(PrivateRoute, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _notificationsDefault.default), {}, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 40,
+                            columnNumber: 15
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 39,
+                        columnNumber: 13
+                    }, void 0)
+                }, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 36,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "/task-list",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(PrivateRoute, {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _taskListDefault.default), {}, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 48,
+                            columnNumber: 15
+                        }, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 47,
+                        columnNumber: 13
+                    }, void 0)
+                }, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 44,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                    path: "*",
+                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+                        to: "/login"
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 52,
+                        columnNumber: 34
+                    }, void 0)
+                }, void 0, false, {
+                    fileName: "src/App.js",
+                    lineNumber: 52,
+                    columnNumber: 9
+                }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/App.js",
-            lineNumber: 13,
+            lineNumber: 18,
             columnNumber: 7
-        }, this)
+        }, undefined)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 12,
+        lineNumber: 17,
         columnNumber: 5
-    }, this);
-}
-_c = App;
+    }, undefined);
+};
+_c1 = App;
 exports.default = App;
-var _c;
-$RefreshReg$(_c, "App");
+var _c, _c1;
+$RefreshReg$(_c, "PrivateRoute");
+$RefreshReg$(_c1, "App");
 
   $parcel$ReactRefreshHelpers$4089.postlude(module);
 } finally {
@@ -26219,31 +26135,129 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function Home() {
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _navbar = require("./Navbar");
+var _navbarDefault = parcelHelpers.interopDefault(_navbar);
+var _homeCss = require("../Styles/Home.css");
+var _s = $RefreshSig$();
+const Home = ()=>{
+    _s();
+    const [orders, setOrders] = (0, _react.useState)([]);
+    (0, _react.useEffect)(()=>{
+        const fetchOrders = async ()=>{
+            try {
+                const token = localStorage.getItem('token');
+                const res = await (0, _axiosDefault.default).get('http://localhost:3000/api/orders', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setOrders(res.data);
+            } catch (err) {
+                console.error('Error fetching orders:', err);
+            }
+        };
+        fetchOrders();
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "container mt-5",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Welcome to CNC Task Manager"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
                 fileName: "src/components/Home.js",
-                lineNumber: 6,
+                lineNumber: 26,
                 columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "Manage tasks for CNC machining at Auto-Stol LLC."
-            }, void 0, false, {
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "home-container",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: "\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C!"
+                    }, void 0, false, {
+                        fileName: "src/components/Home.js",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "orders-list",
+                        children: orders.length > 0 ? orders.map((order)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "order-card",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                        children: order.title
+                                    }, void 0, false, {
+                                        fileName: "src/components/Home.js",
+                                        lineNumber: 33,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: [
+                                            "\u0421\u0442\u0430\u0442\u0443\u0441: ",
+                                            order.status
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/Home.js",
+                                        lineNumber: 34,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: [
+                                            "\u041A\u043B\u0438\u0435\u043D\u0442: ",
+                                            order.customer_name
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/Home.js",
+                                        lineNumber: 35,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: [
+                                            "\u0421\u0440\u043E\u043A: ",
+                                            order.due_date
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/Home.js",
+                                        lineNumber: 36,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, order.id, true, {
+                                fileName: "src/components/Home.js",
+                                lineNumber: 32,
+                                columnNumber: 15
+                            }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: "\u041D\u0435\u0442 \u0437\u0430\u043A\u0430\u0437\u043E\u0432."
+                        }, void 0, false, {
+                            fileName: "src/components/Home.js",
+                            lineNumber: 40,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Home.js",
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "action-button",
+                        children: "+"
+                    }, void 0, false, {
+                        fileName: "src/components/Home.js",
+                        lineNumber: 43,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/Home.js",
-                lineNumber: 7,
+                lineNumber: 27,
                 columnNumber: 7
-            }, this)
+            }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Home.js",
-        lineNumber: 5,
+        lineNumber: 25,
         columnNumber: 5
-    }, this);
-}
+    }, undefined);
+};
+_s(Home, "FvMuVccH6DXI6fqfhJiN/VsjZaw=");
 _c = Home;
 exports.default = Home;
 var _c;
@@ -26254,7 +26268,7 @@ $RefreshReg$(_c, "Home");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"7h6Pi":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","axios":"kooH4","./Navbar":"99RRu","../Styles/Home.css":"1GaYW"}],"7h6Pi":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -28532,149 +28546,7 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"l15IZ":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$0aeb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$0aeb.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$0aeb.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-function Login() {
-    _s();
-    const [username, setUsername] = (0, _react.useState)('');
-    const [password, setPassword] = (0, _react.useState)('');
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    const handleLogin = async (e)=>{
-        e.preventDefault();
-        try {
-            const res = await (0, _axiosDefault.default).post('http://localhost:3000/api/login', {
-                username,
-                password
-            });
-            localStorage.setItem('token', res.data.token);
-            navigate('/home');
-        } catch (err) {
-            console.error('Login error:', {
-                message: err.message,
-                status: err.response?.status,
-                data: err.response?.data
-            });
-            alert('Login failed: ' + (err.response?.data?.error || err.message));
-        }
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "login",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "\u0412\u0445\u043E\u0434"
-            }, void 0, false, {
-                fileName: "src/components/Login.js",
-                lineNumber: 28,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                onSubmit: handleLogin,
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F"
-                            }, void 0, false, {
-                                fileName: "src/components/Login.js",
-                                lineNumber: 31,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "text",
-                                value: username,
-                                onChange: (e)=>setUsername(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/Login.js",
-                                lineNumber: 32,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/Login.js",
-                        lineNumber: 30,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u041F\u0430\u0440\u043E\u043B\u044C"
-                            }, void 0, false, {
-                                fileName: "src/components/Login.js",
-                                lineNumber: 35,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "password",
-                                value: password,
-                                onChange: (e)=>setPassword(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/Login.js",
-                                lineNumber: 36,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/Login.js",
-                        lineNumber: 34,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        type: "submit",
-                        className: "submit-btn",
-                        children: "\u0412\u043E\u0439\u0442\u0438"
-                    }, void 0, false, {
-                        fileName: "src/components/Login.js",
-                        lineNumber: 38,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/Login.js",
-                lineNumber: 29,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/Login.js",
-        lineNumber: 27,
-        columnNumber: 5
-    }, this);
-}
-_s(Login, "IIPwWddbiEHHD7aoL5eQeOR7fTk=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = Login;
-exports.default = Login;
-var _c;
-$RefreshReg$(_c, "Login");
-
-  $parcel$ReactRefreshHelpers$0aeb.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","axios":"kooH4","react-router-dom":"fKeYf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"kooH4":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kooH4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>(0, _axiosJsDefault.default));
@@ -33451,7 +33323,268 @@ Object.entries(HttpStatusCode).forEach(([key, value])=>{
 });
 exports.default = HttpStatusCode;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"j3W9J":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"99RRu":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$eca0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$eca0.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$eca0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _navbarCss = require("../Styles/Navbar.css");
+var _s = $RefreshSig$();
+const Navbar = ()=>{
+    _s();
+    const [isOpen, setIsOpen] = (0, _react.useState)(false);
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const toggleMenu = ()=>{
+        setIsOpen(!isOpen);
+    };
+    const handleLogout = ()=>{
+        localStorage.removeItem('token');
+        navigate('/login');
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        className: "navbar",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "navbar-brand",
+                children: "ProductionProject"
+            }, void 0, false, {
+                fileName: "src/components/Navbar.js",
+                lineNumber: 20,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "hamburger",
+                onClick: toggleMenu,
+                children: "\u2630"
+            }, void 0, false, {
+                fileName: "src/components/Navbar.js",
+                lineNumber: 21,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                className: `navbar-menu ${isOpen ? 'open' : ''}`,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "/home",
+                            children: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F"
+                        }, void 0, false, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 25,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Navbar.js",
+                        lineNumber: 25,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "/create-order",
+                            children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
+                        }, void 0, false, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 26,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Navbar.js",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "/task-list",
+                            children: "\u0421\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u0434\u0430\u0447"
+                        }, void 0, false, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 27,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Navbar.js",
+                        lineNumber: 27,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "/notifications",
+                            children: "\u0423\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u044F"
+                        }, void 0, false, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 28,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Navbar.js",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "/login",
+                            onClick: handleLogout,
+                            children: "\u0412\u044B\u0439\u0442\u0438"
+                        }, void 0, false, {
+                            fileName: "src/components/Navbar.js",
+                            lineNumber: 30,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/Navbar.js",
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Navbar.js",
+                lineNumber: 24,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Navbar.js",
+        lineNumber: 19,
+        columnNumber: 5
+    }, undefined);
+};
+_s(Navbar, "4nYqkg6r9GswevkfG8EhSEEcqSs=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Navbar;
+exports.default = Navbar;
+var _c;
+$RefreshReg$(_c, "Navbar");
+
+  $parcel$ReactRefreshHelpers$eca0.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router-dom":"fKeYf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../Styles/Navbar.css":"f2pmh"}],"f2pmh":[function() {},{}],"1GaYW":[function() {},{}],"l15IZ":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$0aeb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$0aeb.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0aeb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+var _loginCss = require("../Styles/Login.css");
+var _s = $RefreshSig$();
+function Login() {
+    _s();
+    const [username, setUsername] = (0, _react.useState)('');
+    const [password, setPassword] = (0, _react.useState)('');
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const handleLogin = async (e)=>{
+        e.preventDefault();
+        try {
+            const res = await (0, _axiosDefault.default).post('http://localhost:3000/api/login', {
+                username,
+                password
+            });
+            localStorage.setItem('token', res.data.token);
+            navigate('/home');
+        } catch (err) {
+            console.error('Login error:', {
+                message: err.message,
+                status: err.response?.status,
+                data: err.response?.data
+            });
+            alert('Login failed: ' + (err.response?.data?.error || err.message));
+        }
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "login-container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "\u0412\u0445\u043E\u0434 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0443"
+            }, void 0, false, {
+                fileName: "src/components/Login.js",
+                lineNumber: 29,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                onSubmit: handleLogin,
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        placeholder: "\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value),
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/Login.js",
+                        lineNumber: 31,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "password",
+                        placeholder: "\u041F\u0430\u0440\u043E\u043B\u044C",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value),
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/Login.js",
+                        lineNumber: 38,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        type: "submit",
+                        children: "\u0412\u043E\u0439\u0442\u0438"
+                    }, void 0, false, {
+                        fileName: "src/components/Login.js",
+                        lineNumber: 45,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Login.js",
+                lineNumber: 30,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Login.js",
+        lineNumber: 28,
+        columnNumber: 5
+    }, this);
+}
+_s(Login, "IIPwWddbiEHHD7aoL5eQeOR7fTk=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = Login;
+exports.default = Login;
+var _c;
+$RefreshReg$(_c, "Login");
+
+  $parcel$ReactRefreshHelpers$0aeb.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","axios":"kooH4","react-router-dom":"fKeYf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","../Styles/Login.css":"ehpnQ"}],"ehpnQ":[function() {},{}],"j3W9J":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$bbe8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$bbe8.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -33466,201 +33599,119 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _navbar = require("./Navbar");
+var _navbarDefault = parcelHelpers.interopDefault(_navbar);
+var _taskListCss = require("../Styles/TaskList.css");
 var _s = $RefreshSig$();
-function TaskList() {
+const TaskList = ()=>{
     _s();
-    const [orders, setOrders] = (0, _react.useState)([]);
+    const [tasks, setTasks] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
-        const fetchOrders = async ()=>{
+        const fetchTasks = async ()=>{
             try {
-                const res = await (0, _axiosDefault.default).get('http://localhost:3000/api/orders', {
+                const token = localStorage.getItem('token');
+                const res = await (0, _axiosDefault.default).get('http://localhost:3000/api/tasks', {
                     headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                        Authorization: `Bearer ${token}`
                     }
                 });
-                setOrders(res.data);
+                setTasks(res.data);
             } catch (err) {
-                console.error('Error fetching orders:', err);
+                console.error('Error fetching tasks:', err);
             }
         };
-        fetchOrders();
+        fetchTasks();
     }, []);
-    const confirmPrepayment = async (orderId)=>{
-        try {
-            await (0, _axiosDefault.default).put(`http://localhost:3000/api/orders/${orderId}/prepayment`, {
-                prepayment_confirmed: true
-            }, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            });
-            setOrders(orders.map((order)=>order.id === orderId ? {
-                    ...order,
-                    prepayment_confirmed: true,
-                    status: 'in_progress_programming'
-                } : order));
-        } catch (err) {
-            alert('Error confirming prepayment: ' + (err.response?.data.error || err.message));
-        }
-    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "task-list",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                className: "page-title",
-                children: "\u0421\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u043A\u0430\u0437\u043E\u0432"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
                 fileName: "src/components/TaskList.js",
-                lineNumber: 37,
+                lineNumber: 26,
                 columnNumber: 7
-            }, this),
-            orders.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "\u041D\u0435\u0442 \u0437\u0430\u043A\u0430\u0437\u043E\u0432"
-            }, void 0, false, {
-                fileName: "src/components/TaskList.js",
-                lineNumber: 39,
-                columnNumber: 9
-            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
-                className: "orders-table",
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "task-list-container",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                    children: "ID"
-                                }, void 0, false, {
-                                    fileName: "src/components/TaskList.js",
-                                    lineNumber: 44,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                    children: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"
-                                }, void 0, false, {
-                                    fileName: "src/components/TaskList.js",
-                                    lineNumber: 45,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                    children: "\u0421\u0442\u0430\u0442\u0443\u0441"
-                                }, void 0, false, {
-                                    fileName: "src/components/TaskList.js",
-                                    lineNumber: 46,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                    children: "\u0421\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C"
-                                }, void 0, false, {
-                                    fileName: "src/components/TaskList.js",
-                                    lineNumber: 47,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                    children: "\u0421\u0440\u043E\u043A"
-                                }, void 0, false, {
-                                    fileName: "src/components/TaskList.js",
-                                    lineNumber: 48,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
-                                    children: "\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u044F"
-                                }, void 0, false, {
-                                    fileName: "src/components/TaskList.js",
-                                    lineNumber: 49,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/TaskList.js",
-                            lineNumber: 43,
-                            columnNumber: 13
-                        }, this)
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: "\u0421\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u0434\u0430\u0447"
                     }, void 0, false, {
                         fileName: "src/components/TaskList.js",
-                        lineNumber: 42,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
-                        children: orders.map((order)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "tasks-list",
+                        children: tasks.length > 0 ? tasks.map((task)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "task-card",
                                 children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                        children: order.id
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                        children: task.title
                                     }, void 0, false, {
                                         fileName: "src/components/TaskList.js",
-                                        lineNumber: 55,
+                                        lineNumber: 33,
                                         columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                        children: order.title
-                                    }, void 0, false, {
-                                        fileName: "src/components/TaskList.js",
-                                        lineNumber: 56,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                        className: `status-${order.status}`,
-                                        children: order.status === 'awaiting_payment' ? "\u041E\u0436\u0438\u0434\u0430\u0435\u0442 \u043E\u043F\u043B\u0430\u0442\u044B" : order.status === 'in_progress_programming' ? "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435" : order.status === 'completed' ? "\u0417\u0430\u0432\u0435\u0440\u0448\u0451\u043D" : order.status
-                                    }, void 0, false, {
-                                        fileName: "src/components/TaskList.js",
-                                        lineNumber: 57,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                         children: [
-                                            order.total_cost,
-                                            " \u0440\u0443\u0431."
+                                            "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435: ",
+                                            task.description || "\u041D\u0435\u0442 \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u044F"
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/TaskList.js",
-                                        lineNumber: 62,
+                                        lineNumber: 34,
                                         columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                        children: order.due_date || "\u041D\u0435\u0442"
-                                    }, void 0, false, {
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: [
+                                            "\u0421\u0442\u0430\u0442\u0443\u0441: ",
+                                            task.status
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "src/components/TaskList.js",
-                                        lineNumber: 63,
+                                        lineNumber: 35,
                                         columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
-                                        children: order.status === 'awaiting_payment' && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                            onClick: ()=>confirmPrepayment(order.id),
-                                            className: "action-btn",
-                                            children: "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C \u043F\u0440\u0435\u0434\u043E\u043F\u043B\u0430\u0442\u0443"
-                                        }, void 0, false, {
-                                            fileName: "src/components/TaskList.js",
-                                            lineNumber: 66,
-                                            columnNumber: 21
-                                        }, this)
-                                    }, void 0, false, {
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        children: [
+                                            "\u0421\u0440\u043E\u043A: ",
+                                            task.due_date
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "src/components/TaskList.js",
-                                        lineNumber: 64,
+                                        lineNumber: 36,
                                         columnNumber: 17
-                                    }, this)
+                                    }, undefined)
                                 ]
-                            }, order.id, true, {
+                            }, task.id, true, {
                                 fileName: "src/components/TaskList.js",
-                                lineNumber: 54,
+                                lineNumber: 32,
                                 columnNumber: 15
-                            }, this))
+                            }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: "\u041D\u0435\u0442 \u0437\u0430\u0434\u0430\u0447."
+                        }, void 0, false, {
+                            fileName: "src/components/TaskList.js",
+                            lineNumber: 40,
+                            columnNumber: 13
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/TaskList.js",
-                        lineNumber: 52,
-                        columnNumber: 11
-                    }, this)
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/TaskList.js",
-                lineNumber: 41,
-                columnNumber: 9
-            }, this)
+                lineNumber: 27,
+                columnNumber: 7
+            }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/TaskList.js",
-        lineNumber: 36,
+        lineNumber: 25,
         columnNumber: 5
-    }, this);
-}
-_s(TaskList, "FvMuVccH6DXI6fqfhJiN/VsjZaw=");
+    }, undefined);
+};
+_s(TaskList, "bBd6yqkqV9dlkj9ENgRyXKaiXpk=");
 _c = TaskList;
 exports.default = TaskList;
 var _c;
@@ -33671,7 +33722,7 @@ $RefreshReg$(_c, "TaskList");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","axios":"kooH4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jiwb9":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","axios":"kooH4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Navbar":"99RRu","../Styles/TaskList.css":"eGpHi"}],"eGpHi":[function() {},{}],"jiwb9":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$9f49 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$9f49.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -33686,16 +33737,20 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _navbar = require("./Navbar");
+var _navbarDefault = parcelHelpers.interopDefault(_navbar);
+var _notificationsCss = require("../Styles/Notifications.css");
 var _s = $RefreshSig$();
-function Notifications() {
+const Notifications = ()=>{
     _s();
     const [notifications, setNotifications] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         const fetchNotifications = async ()=>{
             try {
+                const token = localStorage.getItem('token');
                 const res = await (0, _axiosDefault.default).get('http://localhost:3000/api/notifications', {
                     headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                        Authorization: `Bearer ${token}`
                     }
                 });
                 setNotifications(res.data);
@@ -33705,95 +33760,73 @@ function Notifications() {
         };
         fetchNotifications();
     }, []);
-    const markAsRead = async (id)=>{
-        try {
-            await (0, _axiosDefault.default).put(`http://localhost:3000/api/notifications/${id}/read`, {
-                read: true
-            }, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-            });
-            setNotifications(notifications.map((notif)=>notif.id === id ? {
-                    ...notif,
-                    read: true
-                } : notif));
-        } catch (err) {
-            console.error('Error marking as read:', err);
-        }
-    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "notifications",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                className: "page-title",
-                children: "\u0423\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u044F"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
                 fileName: "src/components/Notifications.js",
-                lineNumber: 37,
+                lineNumber: 26,
                 columnNumber: 7
-            }, this),
-            notifications.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: "\u041D\u0435\u0442 \u0443\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u0439"
-            }, void 0, false, {
-                fileName: "src/components/Notifications.js",
-                lineNumber: 39,
-                columnNumber: 9
-            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "notification-list",
-                children: notifications.map((notif)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: `notification-card ${notif.read ? '' : 'unread'}`,
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "notification-content",
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "notifications-container",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: "\u0423\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u044F"
+                    }, void 0, false, {
+                        fileName: "src/components/Notifications.js",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "notifications-list",
+                        children: notifications.length > 0 ? notifications.map((notification)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "notification-card",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                        children: notif.message
+                                        children: notification.message
                                     }, void 0, false, {
                                         fileName: "src/components/Notifications.js",
-                                        lineNumber: 45,
+                                        lineNumber: 33,
                                         columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        children: new Date(notif.created_at).toLocaleString()
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                        className: "timestamp",
+                                        children: notification.created_at
                                     }, void 0, false, {
                                         fileName: "src/components/Notifications.js",
-                                        lineNumber: 46,
+                                        lineNumber: 34,
                                         columnNumber: 17
-                                    }, this)
+                                    }, undefined)
                                 ]
-                            }, void 0, true, {
+                            }, notification.id, true, {
                                 fileName: "src/components/Notifications.js",
-                                lineNumber: 44,
+                                lineNumber: 32,
                                 columnNumber: 15
-                            }, this),
-                            !notif.read && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                onClick: ()=>markAsRead(notif.id),
-                                className: "read-btn",
-                                children: "\u2713"
-                            }, void 0, false, {
-                                fileName: "src/components/Notifications.js",
-                                lineNumber: 49,
-                                columnNumber: 17
-                            }, this)
-                        ]
-                    }, notif.id, true, {
+                            }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: "\u041D\u0435\u0442 \u0443\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u0439."
+                        }, void 0, false, {
+                            fileName: "src/components/Notifications.js",
+                            lineNumber: 38,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
                         fileName: "src/components/Notifications.js",
-                        lineNumber: 43,
-                        columnNumber: 13
-                    }, this))
-            }, void 0, false, {
+                        lineNumber: 29,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/Notifications.js",
-                lineNumber: 41,
-                columnNumber: 9
-            }, this)
+                lineNumber: 27,
+                columnNumber: 7
+            }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Notifications.js",
-        lineNumber: 36,
+        lineNumber: 25,
         columnNumber: 5
-    }, this);
-}
+    }, undefined);
+};
 _s(Notifications, "6gMUc0OfbF4zJu51/S5RmKCczuA=");
 _c = Notifications;
 exports.default = Notifications;
@@ -33805,7 +33838,7 @@ $RefreshReg$(_c, "Notifications");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","axios":"kooH4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"itVzm":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","axios":"kooH4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Navbar":"99RRu","../Styles/Notifications.css":"1iA2S"}],"1iA2S":[function() {},{}],"itVzm":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$4024 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$4024.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -33821,308 +33854,250 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactRouterDom = require("react-router-dom");
+var _navbar = require("./Navbar");
+var _navbarDefault = parcelHelpers.interopDefault(_navbar);
+var _createOrderCss = require("../Styles/CreateOrder.css");
 var _s = $RefreshSig$();
-function CreateOrder() {
+const CreateOrder = ()=>{
     _s();
-    const [title, setTitle] = (0, _react.useState)('');
-    const [description, setDescription] = (0, _react.useState)('');
-    const [customerName, setCustomerName] = (0, _react.useState)('');
-    const [customerContact, setCustomerContact] = (0, _react.useState)('');
-    const [totalCost, setTotalCost] = (0, _react.useState)(0);
-    const [dueDate, setDueDate] = (0, _react.useState)('');
-    const [priority, setPriority] = (0, _react.useState)('medium');
-    const [drawing, setDrawing] = (0, _react.useState)(null);
+    const [orderData, setOrderData] = (0, _react.useState)({
+        title: '',
+        description: '',
+        customer_name: '',
+        customer_contact: '',
+        due_date: '',
+        priority: 'medium'
+    });
     const navigate = (0, _reactRouterDom.useNavigate)();
+    const handleChange = (e)=>{
+        setOrderData({
+            ...orderData,
+            [e.target.name]: e.target.value
+        });
+    };
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('description', description);
-        formData.append('customer_name', customerName);
-        formData.append('customer_contact', customerContact);
-        formData.append('total_cost', totalCost);
-        formData.append('due_date', dueDate);
-        formData.append('priority', priority);
-        if (drawing) formData.append('drawing', drawing);
         try {
-            await (0, _axiosDefault.default).post('http://localhost:3000/api/orders', formData, {
+            const token = localStorage.getItem('token');
+            await (0, _axiosDefault.default).post('http://localhost:3000/api/orders', orderData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                    Authorization: `Bearer ${token}`
                 }
             });
-            navigate('/orders');
+            navigate('/home');
         } catch (err) {
-            alert('Error creating order: ' + (err.response?.data.error || err.message));
+            console.error('Error creating order:', err);
         }
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "create-order",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                className: "page-title",
-                children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
                 fileName: "src/components/CreateOrder.js",
-                lineNumber: 40,
+                lineNumber: 38,
                 columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                onSubmit: handleSubmit,
-                className: "order-form",
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "create-order-container",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 43,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "text",
-                                value: title,
-                                onChange: (e)=>setTitle(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 44,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/CreateOrder.js",
-                        lineNumber: 42,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 47,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                                value: description,
-                                onChange: (e)=>setDescription(e.target.value)
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 48,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/CreateOrder.js",
-                        lineNumber: 46,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u0418\u043C\u044F \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u0430"
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 51,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "text",
-                                value: customerName,
-                                onChange: (e)=>setCustomerName(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 52,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/CreateOrder.js",
-                        lineNumber: 50,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442 \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u0430"
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 55,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "text",
-                                value: customerContact,
-                                onChange: (e)=>setCustomerContact(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 56,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/CreateOrder.js",
-                        lineNumber: 54,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u041E\u0431\u0449\u0430\u044F \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C"
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 59,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "number",
-                                value: totalCost,
-                                onChange: (e)=>setTotalCost(e.target.value),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 60,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/CreateOrder.js",
-                        lineNumber: 58,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u0421\u0440\u043E\u043A \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F"
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 63,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "date",
-                                value: dueDate,
-                                onChange: (e)=>setDueDate(e.target.value)
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 64,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/CreateOrder.js",
-                        lineNumber: 62,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u041F\u0440\u0438\u043E\u0440\u0438\u0442\u0435\u0442"
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 67,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-                                value: priority,
-                                onChange: (e)=>setPriority(e.target.value),
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                        value: "low",
-                                        children: "\u041D\u0438\u0437\u043A\u0438\u0439"
-                                    }, void 0, false, {
-                                        fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 69,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                        value: "medium",
-                                        children: "\u0421\u0440\u0435\u0434\u043D\u0438\u0439"
-                                    }, void 0, false, {
-                                        fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 70,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                        value: "high",
-                                        children: "\u0412\u044B\u0441\u043E\u043A\u0438\u0439"
-                                    }, void 0, false, {
-                                        fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 71,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 68,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/CreateOrder.js",
-                        lineNumber: 66,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "form-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: "\u0427\u0435\u0440\u0442\u0435\u0436 (PDF/JPG)"
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 75,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                type: "file",
-                                accept: ".pdf,.jpg,.jpeg",
-                                onChange: (e)=>setDrawing(e.target.files[0]),
-                                required: true
-                            }, void 0, false, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 76,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/CreateOrder.js",
-                        lineNumber: 74,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        type: "submit",
-                        className: "submit-btn",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                         children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
                     }, void 0, false, {
                         fileName: "src/components/CreateOrder.js",
-                        lineNumber: 78,
+                        lineNumber: 40,
                         columnNumber: 9
-                    }, this)
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                        onSubmit: handleSubmit,
+                        className: "order-form",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: [
+                                    "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                        type: "text",
+                                        name: "title",
+                                        value: orderData.title,
+                                        onChange: handleChange,
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 44,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/CreateOrder.js",
+                                lineNumber: 42,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: [
+                                    "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                                        name: "description",
+                                        value: orderData.description,
+                                        onChange: handleChange
+                                    }, void 0, false, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 54,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/CreateOrder.js",
+                                lineNumber: 52,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: [
+                                    "\u0418\u043C\u044F \u043A\u043B\u0438\u0435\u043D\u0442\u0430:",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                        type: "text",
+                                        name: "customer_name",
+                                        value: orderData.customer_name,
+                                        onChange: handleChange,
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 62,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/CreateOrder.js",
+                                lineNumber: 60,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: [
+                                    "\u041A\u043E\u043D\u0442\u0430\u043A\u0442 \u043A\u043B\u0438\u0435\u043D\u0442\u0430:",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                        type: "text",
+                                        name: "customer_contact",
+                                        value: orderData.customer_contact,
+                                        onChange: handleChange,
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 72,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/CreateOrder.js",
+                                lineNumber: 70,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: [
+                                    "\u0421\u0440\u043E\u043A \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F:",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                        type: "date",
+                                        name: "due_date",
+                                        value: orderData.due_date,
+                                        onChange: handleChange,
+                                        required: true
+                                    }, void 0, false, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 82,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/CreateOrder.js",
+                                lineNumber: 80,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                children: [
+                                    "\u041F\u0440\u0438\u043E\u0440\u0438\u0442\u0435\u0442:",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                        name: "priority",
+                                        value: orderData.priority,
+                                        onChange: handleChange,
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                value: "low",
+                                                children: "\u041D\u0438\u0437\u043A\u0438\u0439"
+                                            }, void 0, false, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 93,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                value: "medium",
+                                                children: "\u0421\u0440\u0435\u0434\u043D\u0438\u0439"
+                                            }, void 0, false, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 94,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                value: "high",
+                                                children: "\u0412\u044B\u0441\u043E\u043A\u0438\u0439"
+                                            }, void 0, false, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 95,
+                                                columnNumber: 15
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 92,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/CreateOrder.js",
+                                lineNumber: 90,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "form-actions",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        type: "submit",
+                                        children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"
+                                    }, void 0, false, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 99,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        type: "button",
+                                        onClick: ()=>navigate('/home'),
+                                        children: "\u041E\u0442\u043C\u0435\u043D\u0430"
+                                    }, void 0, false, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 100,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/CreateOrder.js",
+                                lineNumber: 98,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/CreateOrder.js",
+                        lineNumber: 41,
+                        columnNumber: 9
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/CreateOrder.js",
-                lineNumber: 41,
+                lineNumber: 39,
                 columnNumber: 7
-            }, this)
+            }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/CreateOrder.js",
-        lineNumber: 39,
+        lineNumber: 37,
         columnNumber: 5
-    }, this);
-}
-_s(CreateOrder, "kgv0aleF6d/KlvdyyC9LialgIKA=", false, function() {
+    }, undefined);
+};
+_s(CreateOrder, "zuE+SY8qAI8gbi0mARp2ZXK3oIA=", false, function() {
     return [
         (0, _reactRouterDom.useNavigate)
     ];
@@ -34137,6 +34112,6 @@ $RefreshReg$(_c, "CreateOrder");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","axios":"kooH4","react-router-dom":"fKeYf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"6n0o6":[function() {},{}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequiree8ef", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","axios":"kooH4","react-router-dom":"fKeYf","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Navbar":"99RRu","../Styles/CreateOrder.css":"bOhKd"}],"bOhKd":[function() {},{}],"6n0o6":[function() {},{}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequiree8ef", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=public.31b563d9.js.map

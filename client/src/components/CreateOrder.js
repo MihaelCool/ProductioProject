@@ -1,84 +1,110 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
+import '../Styles/CreateOrder.css';
 
-function CreateOrder() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [customerName, setCustomerName] = useState('');
-  const [customerContact, setCustomerContact] = useState('');
-  const [totalCost, setTotalCost] = useState(0);
-  const [dueDate, setDueDate] = useState('');
-  const [priority, setPriority] = useState('medium');
-  const [drawing, setDrawing] = useState(null);
+const CreateOrder = () => {
+  const [orderData, setOrderData] = useState({
+    title: '',
+    description: '',
+    customer_name: '',
+    customer_contact: '',
+    due_date: '',
+    priority: 'medium',
+  });
+
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setOrderData({ ...orderData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('description', description);
-    formData.append('customer_name', customerName);
-    formData.append('customer_contact', customerContact);
-    formData.append('total_cost', totalCost);
-    formData.append('due_date', dueDate);
-    formData.append('priority', priority);
-    if (drawing) formData.append('drawing', drawing);
-
     try {
-      await axios.post('http://localhost:3000/api/orders', formData, {
-        headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${localStorage.getItem('token')}` },
+      const token = localStorage.getItem('token');
+      await axios.post('http://localhost:3000/api/orders', orderData, {
+        headers: { Authorization: `Bearer ${token}` },
       });
-      navigate('/orders');
+      navigate('/home');
     } catch (err) {
-      alert('Error creating order: ' + (err.response?.data.error || err.message));
+      console.error('Error creating order:', err);
     }
   };
 
   return (
-    <div className="create-order">
-      <h1 className="page-title">Создать заказ</h1>
-      <form onSubmit={handleSubmit} className="order-form">
-        <div className="form-group">
-          <label>Название</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label>Описание</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Имя заказчика</label>
-          <input type="text" value={customerName} onChange={(e) => setCustomerName(e.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label>Контакт заказчика</label>
-          <input type="text" value={customerContact} onChange={(e) => setCustomerContact(e.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label>Общая стоимость</label>
-          <input type="number" value={totalCost} onChange={(e) => setTotalCost(e.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label>Срок выполнения</label>
-          <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Приоритет</label>
-          <select value={priority} onChange={(e) => setPriority(e.target.value)}>
-            <option value="low">Низкий</option>
-            <option value="medium">Средний</option>
-            <option value="high">Высокий</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Чертеж (PDF/JPG)</label>
-          <input type="file" accept=".pdf,.jpg,.jpeg" onChange={(e) => setDrawing(e.target.files[0])} required />
-        </div>
-        <button type="submit" className="submit-btn">Создать заказ</button>
-      </form>
+    <div>
+      <Navbar />
+      <div className="create-order-container">
+        <h1>Создать заказ</h1>
+        <form onSubmit={handleSubmit} className="order-form">
+          <label>
+            Название:
+            <input
+              type="text"
+              name="title"
+              value={orderData.title}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Описание:
+            <textarea
+              name="description"
+              value={orderData.description}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Имя клиента:
+            <input
+              type="text"
+              name="customer_name"
+              value={orderData.customer_name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Контакт клиента:
+            <input
+              type="text"
+              name="customer_contact"
+              value={orderData.customer_contact}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Срок выполнения:
+            <input
+              type="date"
+              name="due_date"
+              value={orderData.due_date}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label>
+            Приоритет:
+            <select name="priority" value={orderData.priority} onChange={handleChange}>
+              <option value="low">Низкий</option>
+              <option value="medium">Средний</option>
+              <option value="high">Высокий</option>
+            </select>
+          </label>
+          <div className="form-actions">
+            <button type="submit">Создать</button>
+            <button type="button" onClick={() => navigate('/home')}>
+              Отмена
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
-}
+};
 
 export default CreateOrder;

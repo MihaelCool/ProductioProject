@@ -1,0 +1,84 @@
+/* Базовые стили для мобильных (до 480px) */
+.notifications-container {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.notifications-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notification-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notification-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.notification-card .timestamp {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* Планшеты (768px и больше) */
+@media (min-width: 768px) {
+  .notifications-container {
+    max-width: 700px;
+    padding: 30px;
+  }
+
+  .notifications-container h1 {
+    font-size: 2rem;
+  }
+
+  .notifications-list {
+    gap: 20px;
+  }
+
+  .notification-card {
+    padding: 20px;
+  }
+
+  .notification-card p {
+    font-size: 1rem;
+  }
+
+  .notification-card .timestamp {
+    font-size: 0.9rem;
+  }
+}
+
+/* Десктопы (1024px и больше) */
+@media (min-width: 1024px) {
+  .notifications-container {
+    max-width: 1000px;
+    padding: 40px;
+  }
+
+  .notifications-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .notifications-list {
+    gap: 25px;
+  }
+
+  .notification-card {
+    padding: 25px;
+  }
+}

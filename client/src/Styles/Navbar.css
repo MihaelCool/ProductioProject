@@ -1,0 +1,71 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.hamburger {
+  display: block;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #28a745;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.navbar-menu.open {
+  display: flex;
+}
+
+.navbar-menu li {
+  list-style: none;
+  padding: 10px;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Десктопы (768px и больше) */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .navbar-menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .navbar-menu li {
+    padding: 0 15px;
+  }
+}

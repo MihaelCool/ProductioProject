@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Navbar from './Navbar';
+import '../Styles/Notifications.css';
 
-function Notifications() {
+const Notifications = () => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
+        const token = localStorage.getItem('token');
         const res = await axios.get('http://localhost:3000/api/notifications', {
-          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+          headers: { Authorization: `Bearer ${token}` },
         });
         setNotifications(res.data);
       } catch (err) {
@@ -18,44 +21,26 @@ function Notifications() {
     fetchNotifications();
   }, []);
 
-  const markAsRead = async (id) => {
-    try {
-      await axios.put(`http://localhost:3000/api/notifications/${id}/read`, 
-        { read: true },
-        { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
-      );
-      setNotifications(notifications.map(notif => 
-        notif.id === id ? { ...notif, read: true } : notif
-      ));
-    } catch (err) {
-      console.error('Error marking as read:', err);
-    }
-  };
-
   return (
-    <div className="notifications">
-      <h1 className="page-title">Уведомления</h1>
-      {notifications.length === 0 ? (
-        <p>Нет уведомлений</p>
-      ) : (
-        <div className="notification-list">
-          {notifications.map((notif) => (
-            <div key={notif.id} className={`notification-card ${notif.read ? '' : 'unread'}`}>
-              <div className="notification-content">
-                <p>{notif.message}</p>
-                <span>{new Date(notif.created_at).toLocaleString()}</span>
+    <div>
+      <Navbar />
+      <div className="notifications-container">
+        <h1>Уведомления</h1>
+        <div className="notifications-list">
+          {notifications.length > 0 ? (
+            notifications.map((notification) => (
+              <div key={notification.id} className="notification-card">
+                <p>{notification.message}</p>
+                <p className="timestamp">{notification.created_at}</p>
               </div>
-              {!notif.read && (
-                <button onClick={() => markAsRead(notif.id)} className="read-btn">
-                  ✓
-                </button>
-              )}
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>Нет уведомлений.</p>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
-}
+};
 
 export default Notifications;
