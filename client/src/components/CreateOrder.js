@@ -1,108 +1,237 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import '../Styles/CreateOrder.css';
 
 const CreateOrder = () => {
-  const [orderData, setOrderData] = useState({
+  const [newOrder, setNewOrder] = useState({
     title: '',
     description: '',
     customer_name: '',
     customer_contact: '',
+    status: 'awaiting_payment',
+    manager_id: null, // Будет автоматически заполнено
+    programmer_id: null,
+    operator_id: null,
+    prepayment_confirmed: false,
+    total_cost: 0,
     due_date: '',
     priority: 'medium',
   });
+  const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
+  const [selectedFiles, setSelectedFiles] = useState([]);
 
-  const navigate = useNavigate();
+ useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (token) {
+          const payload = JSON.parse(atob(token.split('.')[1]));
+          setNewOrder((prev) => ({
+            ...prev,
+            manager_id: payload.id,
+          }));
+        }
+        const res = await axios.get('http://localhost:3000/api/orders/users', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setUsers(res.data.filter(user => ['programmer', 'operator'].includes(user.role)));
+      } catch (err) {
+        console.error('Error fetching users:', err);
+        setError('Не удалось загрузить список пользователей.');
+      }
+    };
+    fetchUsers();
+  }, []);
 
-  const handleChange = (e) => {
-    setOrderData({ ...orderData, [e.target.name]: e.target.value });
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setNewOrder((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : type === 'number' ? parseInt(value, 10) || 0 : value,
+    }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files);
+    if (files.some(file => file.size > 5 * 1024 * 1024)) {
+      setError('Размер файла не должен превышать 5MB!');
+      setSelectedFiles([]);
+      e.target.value = null; // Сбрасываем input
+    } else {
+      setError(null);
+      setSelectedFiles(files);
+      console.log('Selected files:', files.map(file => file.name));
+    }
+  };
+
+  const handleCreateOrder = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    Object.entries(newOrder).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+    selectedFiles.forEach(file => {
+      formData.append('files', file); // Добавляем файлы
+    });
+
+    // Отладка: проверяем содержимое FormData
+    for (let [key, value] of formData.entries()) {
+      console.log(`FormData entry: ${key} = ${value}`);
+    }
+
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:3000/api/orders', orderData, {
-        headers: { Authorization: `Bearer ${token}` },
+      const res = await axios.post('http://localhost:3000/api/orders', formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        },
       });
-      navigate('/home');
+      alert('Заказ создан!');
+      setNewOrder({
+        title: '',
+        description: '',
+        customer_name: '',
+        customer_contact: '',
+        status: 'awaiting_payment',
+        manager_id: null,
+        programmer_id: null,
+        operator_id: null,
+        prepayment_confirmed: false,
+        total_cost: 0,
+        due_date: '',
+        priority: 'medium',
+      });
+      setSelectedFiles([]);
+      e.target.reset(); // Сбрасываем форму
     } catch (err) {
       console.error('Error creating order:', err);
+      setError('Ошибка создания заказа: ' + (err.response?.data?.error || err.message));
     }
   };
 
   return (
     <div>
-      <Navbar />
-      <div className="create-order-container">
-        <h1>Создать заказ</h1>
-        <form onSubmit={handleSubmit} className="order-form">
-          <label>
-            Название:
-            <input
-              type="text"
-              name="title"
-              value={orderData.title}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Описание:
-            <textarea
-              name="description"
-              value={orderData.description}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Имя клиента:
-            <input
-              type="text"
-              name="customer_name"
-              value={orderData.customer_name}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Контакт клиента:
-            <input
-              type="text"
-              name="customer_contact"
-              value={orderData.customer_contact}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Срок выполнения:
-            <input
-              type="date"
-              name="due_date"
-              value={orderData.due_date}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Приоритет:
-            <select name="priority" value={orderData.priority} onChange={handleChange}>
-              <option value="low">Низкий</option>
-              <option value="medium">Средний</option>
-              <option value="high">Высокий</option>
-            </select>
-          </label>
-          <div className="form-actions">
-            <button type="submit">Создать</button>
-            <button type="button" onClick={() => navigate('/home')}>
-              Отмена
-            </button>
-          </div>
-        </form>
-      </div>
+    <Navbar />
+    <div className="create-order-container">
+      <h1>Создать заказ</h1>
+      {error && <p className="error-message">{error}</p>}
+      <form onSubmit={handleCreateOrder} className="order-form">
+        <label>
+          Название:
+          <input
+            type="text"
+            name="title"
+            value={newOrder.title}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+          Описание:
+          <textarea
+            name="description"
+            value={newOrder.description}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Имя заказчика:
+          <input
+            type="text"
+            name="customer_name"
+            value={newOrder.customer_name}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+          Контакт заказчика:
+          <input
+            type="text"
+            name="customer_contact"
+            value={newOrder.customer_contact}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+          Срок выполнения:
+          <input
+            type="date"
+            name="due_date"
+            value={newOrder.due_date}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+          Приоритет:
+          <select name="priority" value={newOrder.priority} onChange={handleInputChange}>
+            <option value="low">Низкий</option>
+            <option value="medium">Средний</option>
+            <option value="high">Высокий</option>
+          </select>
+        </label>
+        <label>
+          Общая стоимость:
+          <input
+            type="number"
+            name="total_cost"
+            value={newOrder.total_cost}
+            onChange={handleInputChange}
+            required
+          />
+        </label>
+        <label>
+          Подтвердить предоплату:
+          <input
+            type="checkbox"
+            name="prepayment_confirmed"
+            checked={newOrder.prepayment_confirmed}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Программист:
+          <select name="programmer_id" value={newOrder.programmer_id || ''} onChange={handleInputChange}>
+            <option value="">Не назначен</option>
+            {users.filter(user => user.role === 'programmer').map(user => (
+              <option key={user.id} value={user.id}>
+                {user.username}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Оператор:
+          <select name="operator_id" value={newOrder.operator_id || ''} onChange={handleInputChange}>
+            <option value="">Не назначен</option>
+            {users.filter(user => user.role === 'operator').map(user => (
+              <option key={user.id} value={user.id}>
+                {user.username}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Чертежи (PNG/PDF):
+          <input
+            type="file"
+            name="files"
+            multiple
+            accept=".png,.jpg,.pdf"
+            onChange={handleFileChange}
+          />
+        </label>
+        <div className="form-actions">
+          <button type="submit">Создать</button>
+          <button type="button" onClick={() => window.history.back()}>Отмена</button>
+        </div>
+      </form>
+    </div>
     </div>
   );
 };
