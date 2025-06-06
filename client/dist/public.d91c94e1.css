@@ -246,6 +246,7 @@
 }
 
 .create-order-container h1 {
+  text-align: center;
   color: #333;
   margin-bottom: 20px;
   font-size: 1.5rem;
@@ -255,10 +256,27 @@
   background-color: #fff;
   border-radius: 8px;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   padding: 15px;
   display: flex;
   box-shadow: 0 1px 5px #0000001a;
+}
+
+.form-section {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.form-section h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.form-grid {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  display: grid;
 }
 
 .order-form label {
@@ -274,13 +292,42 @@
   border-radius: 4px;
   width: 100%;
   margin-top: 5px;
-  padding: 10px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 14px;
 }
 
 .order-form textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 80px;
+}
+
+.order-form input[type="file"] {
+  padding: 5px 0;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.checkbox-label {
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.checkbox-label span {
+  font-size: .9rem;
+}
+
+.checkbox-label input {
+  width: auto;
+  margin: 0;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  font-size: .9rem;
 }
 
 .form-actions {
@@ -294,7 +341,7 @@
   border: none;
   border-radius: 4px;
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   font-size: 16px;
   transition: background-color .3s;
 }
@@ -331,8 +378,17 @@
     padding: 20px;
   }
 
+  .form-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
   .order-form label {
     font-size: 1rem;
+  }
+
+  .order-form input, .order-form textarea, .order-form select {
+    padding: 10px;
+    font-size: 16px;
   }
 
   .form-actions {
@@ -348,7 +404,7 @@
 
 @media (width >= 1024px) {
   .create-order-container {
-    max-width: 800px;
+    max-width: 900px;
     padding: 40px;
   }
 
@@ -358,6 +414,10 @@
 
   .order-form {
     padding: 25px;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 

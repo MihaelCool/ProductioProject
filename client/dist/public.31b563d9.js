@@ -23148,232 +23148,6 @@ const Home = ()=>{
                         lineNumber: 137,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        onClick: ()=>setIsCreating(true),
-                        className: "create-button",
-                        children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
-                    }, void 0, false, {
-                        fileName: "src/components/Home.js",
-                        lineNumber: 138,
-                        columnNumber: 9
-                    }, undefined),
-                    isCreating && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                        onSubmit: handleCreateOrder,
-                        className: "order-form",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "text",
-                                        name: "title",
-                                        value: newOrder.title,
-                                        onChange: handleInputChange,
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 145,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 143,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                                        name: "description",
-                                        value: newOrder.description,
-                                        onChange: handleInputChange
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 155,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 153,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u0418\u043C\u044F \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u0430:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "text",
-                                        name: "customer_name",
-                                        value: newOrder.customer_name,
-                                        onChange: handleInputChange,
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 163,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 161,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041A\u043E\u043D\u0442\u0430\u043A\u0442 \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u0430:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "text",
-                                        name: "customer_contact",
-                                        value: newOrder.customer_contact,
-                                        onChange: handleInputChange,
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 173,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 171,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u0421\u0440\u043E\u043A \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "date",
-                                        name: "due_date",
-                                        value: newOrder.due_date,
-                                        onChange: handleInputChange,
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 183,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 181,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041F\u0440\u0438\u043E\u0440\u0438\u0442\u0435\u0442:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-                                        name: "priority",
-                                        value: newOrder.priority,
-                                        onChange: handleInputChange,
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                value: "low",
-                                                children: "\u041D\u0438\u0437\u043A\u0438\u0439"
-                                            }, void 0, false, {
-                                                fileName: "src/components/Home.js",
-                                                lineNumber: 194,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                value: "medium",
-                                                children: "\u0421\u0440\u0435\u0434\u043D\u0438\u0439"
-                                            }, void 0, false, {
-                                                fileName: "src/components/Home.js",
-                                                lineNumber: 195,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                value: "high",
-                                                children: "\u0412\u044B\u0441\u043E\u043A\u0438\u0439"
-                                            }, void 0, false, {
-                                                fileName: "src/components/Home.js",
-                                                lineNumber: 196,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 193,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 191,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041E\u0431\u0449\u0430\u044F \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "number",
-                                        name: "total_cost",
-                                        value: newOrder.total_cost,
-                                        onChange: handleInputChange,
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 201,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 199,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C \u043F\u0440\u0435\u0434\u043E\u043F\u043B\u0430\u0442\u0443:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "checkbox",
-                                        name: "prepayment_confirmed",
-                                        checked: newOrder.prepayment_confirmed,
-                                        onChange: handleInputChange
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 211,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 209,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "form-actions",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        type: "submit",
-                                        children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 219,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        type: "button",
-                                        onClick: ()=>setIsCreating(false),
-                                        children: "\u041E\u0442\u043C\u0435\u043D\u0430"
-                                    }, void 0, false, {
-                                        fileName: "src/components/Home.js",
-                                        lineNumber: 220,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/Home.js",
-                                lineNumber: 218,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/Home.js",
-                        lineNumber: 142,
-                        columnNumber: 11
-                    }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "orders-list",
                         children: orders.length > 0 ? orders.map((order)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -23384,7 +23158,7 @@ const Home = ()=>{
                                         children: order.title
                                     }, void 0, false, {
                                         fileName: "src/components/Home.js",
-                                        lineNumber: 230,
+                                        lineNumber: 142,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23394,7 +23168,7 @@ const Home = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Home.js",
-                                        lineNumber: 231,
+                                        lineNumber: 143,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23404,7 +23178,7 @@ const Home = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Home.js",
-                                        lineNumber: 232,
+                                        lineNumber: 144,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23414,7 +23188,7 @@ const Home = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Home.js",
-                                        lineNumber: 233,
+                                        lineNumber: 145,
                                         columnNumber: 17
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23424,24 +23198,24 @@ const Home = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Home.js",
-                                        lineNumber: 234,
+                                        lineNumber: 146,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
                             }, order.id, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 229,
+                                lineNumber: 141,
                                 columnNumber: 15
                             }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                             children: "\u041D\u0435\u0442 \u0437\u0430\u043A\u0430\u0437\u043E\u0432."
                         }, void 0, false, {
                             fileName: "src/components/Home.js",
-                            lineNumber: 238,
+                            lineNumber: 150,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Home.js",
-                        lineNumber: 226,
+                        lineNumber: 138,
                         columnNumber: 9
                     }, undefined),
                     selectedOrder && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -23451,7 +23225,7 @@ const Home = ()=>{
                                 children: "\u0414\u0435\u0442\u0430\u043B\u0438 \u0437\u0430\u043A\u0430\u0437\u0430"
                             }, void 0, false, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 243,
+                                lineNumber: 155,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23461,7 +23235,7 @@ const Home = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 244,
+                                lineNumber: 156,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23471,7 +23245,7 @@ const Home = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 245,
+                                lineNumber: 157,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23481,7 +23255,7 @@ const Home = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 246,
+                                lineNumber: 158,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23491,7 +23265,7 @@ const Home = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 247,
+                                lineNumber: 159,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23501,7 +23275,7 @@ const Home = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 248,
+                                lineNumber: 160,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23511,7 +23285,7 @@ const Home = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 249,
+                                lineNumber: 161,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -23521,7 +23295,7 @@ const Home = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 250,
+                                lineNumber: 162,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -23536,7 +23310,7 @@ const Home = ()=>{
                                                 children: "\u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D"
                                             }, void 0, false, {
                                                 fileName: "src/components/Home.js",
-                                                lineNumber: 257,
+                                                lineNumber: 169,
                                                 columnNumber: 17
                                             }, undefined),
                                             managers.map((manager)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
@@ -23544,19 +23318,19 @@ const Home = ()=>{
                                                     children: manager.username
                                                 }, manager.id, false, {
                                                     fileName: "src/components/Home.js",
-                                                    lineNumber: 259,
+                                                    lineNumber: 171,
                                                     columnNumber: 19
                                                 }, undefined))
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/Home.js",
-                                        lineNumber: 253,
+                                        lineNumber: 165,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 251,
+                                lineNumber: 163,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -23568,13 +23342,13 @@ const Home = ()=>{
                                         onChange: (e)=>handleUpdatePrepayment(selectedOrder.id, e.target.checked)
                                     }, void 0, false, {
                                         fileName: "src/components/Home.js",
-                                        lineNumber: 267,
+                                        lineNumber: 179,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 265,
+                                lineNumber: 177,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -23582,13 +23356,13 @@ const Home = ()=>{
                                 children: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C"
                             }, void 0, false, {
                                 fileName: "src/components/Home.js",
-                                lineNumber: 273,
+                                lineNumber: 185,
                                 columnNumber: 13
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Home.js",
-                        lineNumber: 242,
+                        lineNumber: 154,
                         columnNumber: 11
                     }, undefined)
                 ]
@@ -30896,7 +30670,7 @@ const CreateOrder = ()=>{
         if (files.some((file)=>file.size > 5242880)) {
             setError("\u0420\u0430\u0437\u043C\u0435\u0440 \u0444\u0430\u0439\u043B\u0430 \u043D\u0435 \u0434\u043E\u043B\u0436\u0435\u043D \u043F\u0440\u0435\u0432\u044B\u0448\u0430\u0442\u044C 5MB!");
             setSelectedFiles([]);
-            e.target.value = null; // Сбрасываем input
+            e.target.value = null;
         } else {
             setError(null);
             setSelectedFiles(files);
@@ -30910,9 +30684,8 @@ const CreateOrder = ()=>{
             formData.append(key, value);
         });
         selectedFiles.forEach((file)=>{
-            formData.append('files', file); // Добавляем файлы
+            formData.append('files', file);
         });
-        // Отладка: проверяем содержимое FormData
         for (let [key, value] of formData.entries())console.log(`FormData entry: ${key} = ${value}`);
         try {
             const token = localStorage.getItem('token');
@@ -30938,7 +30711,7 @@ const CreateOrder = ()=>{
                 priority: 'medium'
             });
             setSelectedFiles([]);
-            e.target.reset(); // Сбрасываем форму
+            e.target.reset();
         } catch (err) {
             console.error('Error creating order:', err);
             setError("\u041E\u0448\u0438\u0431\u043A\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F \u0437\u0430\u043A\u0430\u0437\u0430: " + (err.response?.data?.error || err.message));
@@ -30948,8 +30721,8 @@ const CreateOrder = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarDefault.default), {}, void 0, false, {
                 fileName: "src/components/CreateOrder.js",
-                lineNumber: 117,
-                columnNumber: 5
+                lineNumber: 116,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "create-order-container",
@@ -30958,293 +30731,394 @@ const CreateOrder = ()=>{
                         children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u043A\u0430\u0437"
                     }, void 0, false, {
                         fileName: "src/components/CreateOrder.js",
-                        lineNumber: 119,
-                        columnNumber: 7
+                        lineNumber: 118,
+                        columnNumber: 9
                     }, undefined),
                     error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "error-message",
                         children: error
                     }, void 0, false, {
                         fileName: "src/components/CreateOrder.js",
-                        lineNumber: 120,
-                        columnNumber: 17
+                        lineNumber: 119,
+                        columnNumber: 19
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                         onSubmit: handleCreateOrder,
                         className: "order-form",
+                        encType: "multipart/form-data",
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "form-section",
                                 children: [
-                                    "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "text",
-                                        name: "title",
-                                        value: newOrder.title,
-                                        onChange: handleInputChange,
-                                        required: true
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                        children: "\u0418\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u043E \u0437\u0430\u043A\u0430\u0437\u0435"
                                     }, void 0, false, {
                                         fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 123,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "form-grid",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                children: [
+                                                    "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "text",
+                                                        name: "title",
+                                                        value: newOrder.title,
+                                                        onChange: handleInputChange,
+                                                        required: true
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 127,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 125,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                children: [
+                                                    "\u0418\u043C\u044F \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u0430:",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "text",
+                                                        name: "customer_name",
+                                                        value: newOrder.customer_name,
+                                                        onChange: handleInputChange,
+                                                        required: true
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 137,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 135,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                children: [
+                                                    "\u041A\u043E\u043D\u0442\u0430\u043A\u0442 \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u0430:",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "text",
+                                                        name: "customer_contact",
+                                                        value: newOrder.customer_contact,
+                                                        onChange: handleInputChange,
+                                                        required: true
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 147,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 145,
+                                                columnNumber: 15
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/CreateOrder.js",
                                         lineNumber: 124,
-                                        columnNumber: 11
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                        className: "full-width",
+                                        children: [
+                                            "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:",
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
+                                                name: "description",
+                                                value: newOrder.description,
+                                                onChange: handleInputChange
+                                            }, void 0, false, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 158,
+                                                columnNumber: 15
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 156,
+                                        columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/CreateOrder.js",
                                 lineNumber: 122,
-                                columnNumber: 9
+                                columnNumber: 11
                             }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "form-section",
                                 children: [
-                                    "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
-                                        name: "description",
-                                        value: newOrder.description,
-                                        onChange: handleInputChange
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                        children: "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B \u0437\u0430\u043A\u0430\u0437\u0430"
                                     }, void 0, false, {
                                         fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 134,
-                                        columnNumber: 11
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 132,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u0418\u043C\u044F \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u0430:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "text",
-                                        name: "customer_name",
-                                        value: newOrder.customer_name,
-                                        onChange: handleInputChange,
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 142,
-                                        columnNumber: 11
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 140,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041A\u043E\u043D\u0442\u0430\u043A\u0442 \u0437\u0430\u043A\u0430\u0437\u0447\u0438\u043A\u0430:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "text",
-                                        name: "customer_contact",
-                                        value: newOrder.customer_contact,
-                                        onChange: handleInputChange,
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 152,
-                                        columnNumber: 11
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 150,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u0421\u0440\u043E\u043A \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "date",
-                                        name: "due_date",
-                                        value: newOrder.due_date,
-                                        onChange: handleInputChange,
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 162,
-                                        columnNumber: 11
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 160,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041F\u0440\u0438\u043E\u0440\u0438\u0442\u0435\u0442:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-                                        name: "priority",
-                                        value: newOrder.priority,
-                                        onChange: handleInputChange,
+                                        lineNumber: 168,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "form-grid",
                                         children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                value: "low",
-                                                children: "\u041D\u0438\u0437\u043A\u0438\u0439"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                children: [
+                                                    "\u0421\u0440\u043E\u043A \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F:",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "date",
+                                                        name: "due_date",
+                                                        value: newOrder.due_date,
+                                                        onChange: handleInputChange,
+                                                        required: true
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 172,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "src/components/CreateOrder.js",
-                                                lineNumber: 173,
-                                                columnNumber: 13
+                                                lineNumber: 170,
+                                                columnNumber: 15
                                             }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                value: "medium",
-                                                children: "\u0421\u0440\u0435\u0434\u043D\u0438\u0439"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                children: [
+                                                    "\u041F\u0440\u0438\u043E\u0440\u0438\u0442\u0435\u0442:",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                                        name: "priority",
+                                                        value: newOrder.priority,
+                                                        onChange: handleInputChange,
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                value: "low",
+                                                                children: "\u041D\u0438\u0437\u043A\u0438\u0439"
+                                                            }, void 0, false, {
+                                                                fileName: "src/components/CreateOrder.js",
+                                                                lineNumber: 183,
+                                                                columnNumber: 19
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                value: "medium",
+                                                                children: "\u0421\u0440\u0435\u0434\u043D\u0438\u0439"
+                                                            }, void 0, false, {
+                                                                fileName: "src/components/CreateOrder.js",
+                                                                lineNumber: 184,
+                                                                columnNumber: 19
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                value: "high",
+                                                                children: "\u0412\u044B\u0441\u043E\u043A\u0438\u0439"
+                                                            }, void 0, false, {
+                                                                fileName: "src/components/CreateOrder.js",
+                                                                lineNumber: 185,
+                                                                columnNumber: 19
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 182,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "src/components/CreateOrder.js",
-                                                lineNumber: 174,
-                                                columnNumber: 13
+                                                lineNumber: 180,
+                                                columnNumber: 15
                                             }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                value: "high",
-                                                children: "\u0412\u044B\u0441\u043E\u043A\u0438\u0439"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                children: [
+                                                    "\u041E\u0431\u0449\u0430\u044F \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C:",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "number",
+                                                        name: "total_cost",
+                                                        value: newOrder.total_cost,
+                                                        onChange: handleInputChange,
+                                                        required: true
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 190,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "src/components/CreateOrder.js",
-                                                lineNumber: 175,
-                                                columnNumber: 13
+                                                lineNumber: 188,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                className: "checkbox-label",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        children: "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C \u043F\u0440\u0435\u0434\u043E\u043F\u043B\u0430\u0442\u0443:"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 199,
+                                                        columnNumber: 17
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "checkbox",
+                                                        name: "prepayment_confirmed",
+                                                        checked: newOrder.prepayment_confirmed,
+                                                        onChange: handleInputChange
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 200,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 198,
+                                                columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 172,
-                                        columnNumber: 11
+                                        lineNumber: 169,
+                                        columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/CreateOrder.js",
-                                lineNumber: 170,
-                                columnNumber: 9
+                                lineNumber: 167,
+                                columnNumber: 11
                             }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "form-section",
                                 children: [
-                                    "\u041E\u0431\u0449\u0430\u044F \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "number",
-                                        name: "total_cost",
-                                        value: newOrder.total_cost,
-                                        onChange: handleInputChange,
-                                        required: true
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                        children: "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u0438"
                                     }, void 0, false, {
                                         fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 180,
-                                        columnNumber: 11
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 178,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044C \u043F\u0440\u0435\u0434\u043E\u043F\u043B\u0430\u0442\u0443:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "checkbox",
-                                        name: "prepayment_confirmed",
-                                        checked: newOrder.prepayment_confirmed,
-                                        onChange: handleInputChange
-                                    }, void 0, false, {
-                                        fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 190,
-                                        columnNumber: 11
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 188,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0441\u0442:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-                                        name: "programmer_id",
-                                        value: newOrder.programmer_id || '',
-                                        onChange: handleInputChange,
+                                        lineNumber: 212,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "form-grid",
                                         children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                value: "",
-                                                children: "\u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                children: [
+                                                    "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0441\u0442:",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                                        name: "programmer_id",
+                                                        value: newOrder.programmer_id || '',
+                                                        onChange: handleInputChange,
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                value: "",
+                                                                children: "\u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D"
+                                                            }, void 0, false, {
+                                                                fileName: "src/components/CreateOrder.js",
+                                                                lineNumber: 217,
+                                                                columnNumber: 19
+                                                            }, undefined),
+                                                            users.filter((user)=>user.role === 'programmer').map((user)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                    value: user.id,
+                                                                    children: user.username
+                                                                }, user.id, false, {
+                                                                    fileName: "src/components/CreateOrder.js",
+                                                                    lineNumber: 219,
+                                                                    columnNumber: 21
+                                                                }, undefined))
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 216,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "src/components/CreateOrder.js",
-                                                lineNumber: 200,
-                                                columnNumber: 13
+                                                lineNumber: 214,
+                                                columnNumber: 15
                                             }, undefined),
-                                            users.filter((user)=>user.role === 'programmer').map((user)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                    value: user.id,
-                                                    children: user.username
-                                                }, user.id, false, {
-                                                    fileName: "src/components/CreateOrder.js",
-                                                    lineNumber: 202,
-                                                    columnNumber: 15
-                                                }, undefined))
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                                children: [
+                                                    "\u041E\u043F\u0435\u0440\u0430\u0442\u043E\u0440:",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                                        name: "operator_id",
+                                                        value: newOrder.operator_id || '',
+                                                        onChange: handleInputChange,
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                value: "",
+                                                                children: "\u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D"
+                                                            }, void 0, false, {
+                                                                fileName: "src/components/CreateOrder.js",
+                                                                lineNumber: 228,
+                                                                columnNumber: 19
+                                                            }, undefined),
+                                                            users.filter((user)=>user.role === 'operator').map((user)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                                    value: user.id,
+                                                                    children: user.username
+                                                                }, user.id, false, {
+                                                                    fileName: "src/components/CreateOrder.js",
+                                                                    lineNumber: 230,
+                                                                    columnNumber: 21
+                                                                }, undefined))
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/components/CreateOrder.js",
+                                                        lineNumber: 227,
+                                                        columnNumber: 17
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/CreateOrder.js",
+                                                lineNumber: 225,
+                                                columnNumber: 15
+                                            }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 199,
-                                        columnNumber: 11
+                                        lineNumber: 213,
+                                        columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/CreateOrder.js",
-                                lineNumber: 197,
-                                columnNumber: 9
+                                lineNumber: 211,
+                                columnNumber: 11
                             }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "form-section",
                                 children: [
-                                    "\u041E\u043F\u0435\u0440\u0430\u0442\u043E\u0440:",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-                                        name: "operator_id",
-                                        value: newOrder.operator_id || '',
-                                        onChange: handleInputChange,
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                        children: "\u0424\u0430\u0439\u043B\u044B"
+                                    }, void 0, false, {
+                                        fileName: "src/components/CreateOrder.js",
+                                        lineNumber: 241,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                        className: "full-width",
                                         children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                value: "",
-                                                children: "\u041D\u0435 \u043D\u0430\u0437\u043D\u0430\u0447\u0435\u043D"
+                                            "\u0427\u0435\u0440\u0442\u0435\u0436\u0438 (PNG/PDF):",
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                type: "file",
+                                                name: "files",
+                                                multiple: true,
+                                                accept: ".png,.jpg,.pdf",
+                                                onChange: handleFileChange
                                             }, void 0, false, {
                                                 fileName: "src/components/CreateOrder.js",
-                                                lineNumber: 211,
-                                                columnNumber: 13
-                                            }, undefined),
-                                            users.filter((user)=>user.role === 'operator').map((user)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                                    value: user.id,
-                                                    children: user.username
-                                                }, user.id, false, {
-                                                    fileName: "src/components/CreateOrder.js",
-                                                    lineNumber: 213,
-                                                    columnNumber: 15
-                                                }, undefined))
+                                                lineNumber: 244,
+                                                columnNumber: 15
+                                            }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 210,
-                                        columnNumber: 11
+                                        lineNumber: 242,
+                                        columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/CreateOrder.js",
-                                lineNumber: 208,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                children: [
-                                    "\u0427\u0435\u0440\u0442\u0435\u0436\u0438 (PNG/PDF):",
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                        type: "file",
-                                        name: "files",
-                                        multiple: true,
-                                        accept: ".png,.jpg,.pdf",
-                                        onChange: handleFileChange
-                                    }, void 0, false, {
-                                        fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 221,
-                                        columnNumber: 11
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/CreateOrder.js",
-                                lineNumber: 219,
-                                columnNumber: 9
+                                lineNumber: 240,
+                                columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "form-actions",
@@ -31254,8 +31128,8 @@ const CreateOrder = ()=>{
                                         children: "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"
                                     }, void 0, false, {
                                         fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 230,
-                                        columnNumber: 11
+                                        lineNumber: 255,
+                                        columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                         type: "button",
@@ -31263,35 +31137,35 @@ const CreateOrder = ()=>{
                                         children: "\u041E\u0442\u043C\u0435\u043D\u0430"
                                     }, void 0, false, {
                                         fileName: "src/components/CreateOrder.js",
-                                        lineNumber: 231,
-                                        columnNumber: 11
+                                        lineNumber: 256,
+                                        columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/CreateOrder.js",
-                                lineNumber: 229,
-                                columnNumber: 9
+                                lineNumber: 254,
+                                columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/CreateOrder.js",
-                        lineNumber: 121,
-                        columnNumber: 7
+                        lineNumber: 120,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/CreateOrder.js",
-                lineNumber: 118,
-                columnNumber: 5
+                lineNumber: 117,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/CreateOrder.js",
-        lineNumber: 116,
+        lineNumber: 115,
         columnNumber: 5
     }, undefined);
 };
-_s(CreateOrder, "pc/2pU0fAeMAHHd9kC2zXgji5vo=");
+_s(CreateOrder, "BEzRaVgnqrIxgtVefycrqmwMAYs=");
 _c = CreateOrder;
 exports.default = CreateOrder;
 var _c;

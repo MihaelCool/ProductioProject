@@ -10,7 +10,7 @@ const CreateOrder = () => {
     customer_name: '',
     customer_contact: '',
     status: 'awaiting_payment',
-    manager_id: null, // Будет автоматически заполнено
+    manager_id: null,
     programmer_id: null,
     operator_id: null,
     prepayment_confirmed: false,
@@ -22,7 +22,7 @@ const CreateOrder = () => {
   const [error, setError] = useState(null);
   const [selectedFiles, setSelectedFiles] = useState([]);
 
- useEffect(() => {
+  useEffect(() => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -58,7 +58,7 @@ const CreateOrder = () => {
     if (files.some(file => file.size > 5 * 1024 * 1024)) {
       setError('Размер файла не должен превышать 5MB!');
       setSelectedFiles([]);
-      e.target.value = null; // Сбрасываем input
+      e.target.value = null;
     } else {
       setError(null);
       setSelectedFiles(files);
@@ -73,10 +73,9 @@ const CreateOrder = () => {
       formData.append(key, value);
     });
     selectedFiles.forEach(file => {
-      formData.append('files', file); // Добавляем файлы
+      formData.append('files', file);
     });
 
-    // Отладка: проверяем содержимое FormData
     for (let [key, value] of formData.entries()) {
       console.log(`FormData entry: ${key} = ${value}`);
     }
@@ -105,7 +104,7 @@ const CreateOrder = () => {
         priority: 'medium',
       });
       setSelectedFiles([]);
-      e.target.reset(); // Сбрасываем форму
+      e.target.reset();
     } catch (err) {
       console.error('Error creating order:', err);
       setError('Ошибка создания заказа: ' + (err.response?.data?.error || err.message));
@@ -114,124 +113,150 @@ const CreateOrder = () => {
 
   return (
     <div>
-    <Navbar />
-    <div className="create-order-container">
-      <h1>Создать заказ</h1>
-      {error && <p className="error-message">{error}</p>}
-      <form onSubmit={handleCreateOrder} className="order-form">
-        <label>
-          Название:
-          <input
-            type="text"
-            name="title"
-            value={newOrder.title}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <label>
-          Описание:
-          <textarea
-            name="description"
-            value={newOrder.description}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Имя заказчика:
-          <input
-            type="text"
-            name="customer_name"
-            value={newOrder.customer_name}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <label>
-          Контакт заказчика:
-          <input
-            type="text"
-            name="customer_contact"
-            value={newOrder.customer_contact}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <label>
-          Срок выполнения:
-          <input
-            type="date"
-            name="due_date"
-            value={newOrder.due_date}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <label>
-          Приоритет:
-          <select name="priority" value={newOrder.priority} onChange={handleInputChange}>
-            <option value="low">Низкий</option>
-            <option value="medium">Средний</option>
-            <option value="high">Высокий</option>
-          </select>
-        </label>
-        <label>
-          Общая стоимость:
-          <input
-            type="number"
-            name="total_cost"
-            value={newOrder.total_cost}
-            onChange={handleInputChange}
-            required
-          />
-        </label>
-        <label>
-          Подтвердить предоплату:
-          <input
-            type="checkbox"
-            name="prepayment_confirmed"
-            checked={newOrder.prepayment_confirmed}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Программист:
-          <select name="programmer_id" value={newOrder.programmer_id || ''} onChange={handleInputChange}>
-            <option value="">Не назначен</option>
-            {users.filter(user => user.role === 'programmer').map(user => (
-              <option key={user.id} value={user.id}>
-                {user.username}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Оператор:
-          <select name="operator_id" value={newOrder.operator_id || ''} onChange={handleInputChange}>
-            <option value="">Не назначен</option>
-            {users.filter(user => user.role === 'operator').map(user => (
-              <option key={user.id} value={user.id}>
-                {user.username}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Чертежи (PNG/PDF):
-          <input
-            type="file"
-            name="files"
-            multiple
-            accept=".png,.jpg,.pdf"
-            onChange={handleFileChange}
-          />
-        </label>
-        <div className="form-actions">
-          <button type="submit">Создать</button>
-          <button type="button" onClick={() => window.history.back()}>Отмена</button>
-        </div>
-      </form>
-    </div>
+      <Navbar />
+      <div className="create-order-container">
+        <h1>Создать заказ</h1>
+        {error && <p className="error-message">{error}</p>}
+        <form onSubmit={handleCreateOrder} className="order-form" encType="multipart/form-data">
+          {/* Секция: Информация о заказе */}
+          <div className="form-section">
+            <h2>Информация о заказе</h2>
+            <div className="form-grid">
+              <label>
+                Название:
+                <input
+                  type="text"
+                  name="title"
+                  value={newOrder.title}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <label>
+                Имя заказчика:
+                <input
+                  type="text"
+                  name="customer_name"
+                  value={newOrder.customer_name}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <label>
+                Контакт заказчика:
+                <input
+                  type="text"
+                  name="customer_contact"
+                  value={newOrder.customer_contact}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+            </div>
+            <label className="full-width">
+              Описание:
+              <textarea
+                name="description"
+                value={newOrder.description}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+
+          {/* Секция: Параметры заказа */}
+          <div className="form-section">
+            <h2>Параметры заказа</h2>
+            <div className="form-grid">
+              <label>
+                Срок выполнения:
+                <input
+                  type="date"
+                  name="due_date"
+                  value={newOrder.due_date}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <label>
+                Приоритет:
+                <select name="priority" value={newOrder.priority} onChange={handleInputChange}>
+                  <option value="low">Низкий</option>
+                  <option value="medium">Средний</option>
+                  <option value="high">Высокий</option>
+                </select>
+              </label>
+              <label>
+                Общая стоимость:
+                <input
+                  type="number"
+                  name="total_cost"
+                  value={newOrder.total_cost}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <label className="checkbox-label">
+                <span>Подтвердить предоплату:</span>
+                <input
+                  type="checkbox"
+                  name="prepayment_confirmed"
+                  checked={newOrder.prepayment_confirmed}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
+          </div>
+
+          {/* Секция: Исполнители */}
+          <div className="form-section">
+            <h2>Исполнители</h2>
+            <div className="form-grid">
+              <label>
+                Программист:
+                <select name="programmer_id" value={newOrder.programmer_id || ''} onChange={handleInputChange}>
+                  <option value="">Не назначен</option>
+                  {users.filter(user => user.role === 'programmer').map(user => (
+                    <option key={user.id} value={user.id}>
+                      {user.username}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Оператор:
+                <select name="operator_id" value={newOrder.operator_id || ''} onChange={handleInputChange}>
+                  <option value="">Не назначен</option>
+                  {users.filter(user => user.role === 'operator').map(user => (
+                    <option key={user.id} value={user.id}>
+                      {user.username}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          </div>
+
+          {/* Секция: Файлы */}
+          <div className="form-section">
+            <h2>Файлы</h2>
+            <label className="full-width">
+              Чертежи (PNG/PDF):
+              <input
+                type="file"
+                name="files"
+                multiple
+                accept=".png,.jpg,.pdf"
+                onChange={handleFileChange}
+              />
+            </label>
+          </div>
+
+          <div className="form-actions">
+            <button type="submit">Создать</button>
+            <button type="button" onClick={() => window.history.back()}>Отмена</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
